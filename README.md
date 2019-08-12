@@ -13,9 +13,9 @@ In your project, require the plugin with Composer:
 
 `composer require docksal/blt-docksal`
 
-Initialize the Docksal integration by calling `recipes:ci:docksal:init`, which is provided by this plugin:
+Initialize the Docksal integration by calling `recipes:docksal:project:init`, which is provided by this plugin:
 
-`./vendor/bin/blt recipes:ci:docksal:init`
+`./vendor/bin/blt recipes:docksal:project:init`
 
 This command will initialize .docksal folder as well as BLT configs in root/blt.
 Make sure to commit those changes to Git.
