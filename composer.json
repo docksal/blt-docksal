@@ -1,0 +1,17 @@
+{
+    "name": "docksal/blt-docksal",
+    "type": "library",
+    "description": "Docksal integration for Acquia BLT",
+    "keywords": ["acquia", "blt","docksal"],
+    "homepage": "https://github.com/docksal/blt-docksal",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Docksal Team",
+            "homepage": "https://docksal.io",
+            "role": "Maintainer"
+        }
+    ],
+  "require": {},
+  "autoload": {}
+}
