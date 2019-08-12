@@ -1,0 +1,23 @@
+# Override any settings as necessary by copying to local.yml
+project:
+  local:
+    protocol: http
+    hostname: '${project.machine_name}.docksal'
+
+# You can set custom project aliases in drush/sites/*.site.yml.
+# All local:* targets are run against drush.aliases.local.
+#drush:
+#  aliases:
+#    local: local.mysite.dev
+
+drupal:
+  db:
+    username: user
+    password: user
+    database: default
+    host: db
+
+behat:
+  # The URL for Chrome debug endpoint.
+  chrome:
+    api_url: http://chrome:9222

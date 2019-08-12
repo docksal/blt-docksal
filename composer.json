@@ -1,5 +1,5 @@
 {
-    "name": "docksal/blt-docksal",
+  "name": "docksal/blt-docksal",
     "type": "library",
     "description": "Docksal integration for Acquia BLT",
     "keywords": ["acquia", "blt","docksal"],
@@ -13,5 +13,9 @@
         }
     ],
   "require": {},
-  "autoload": {}
+  "autoload": {
+    "psr-4": {
+      "Docksal\\BltDockal\\": "./src/"
+    }
+  }
 }
