@@ -27,6 +27,26 @@ class DocksalCommands extends BltTasks {
       throw new BltException("Could not initialize Docksal configuration.");
     }
 
+    // Copy BLT local config template (aka example.local.blt.yml).
+    $result = $this->taskFilesystemStack()
+      ->copy($this->getConfigValue('repo.root') . '/vendor/docksal/blt-docksal/config/blt/example.local.blt.yml', $this->getConfigValue('repo.root') . '/blt/example.local.blt.yml', true)
+      ->setVerbosityThreshold(VerbosityThresholdInterface::VERBOSITY_VERBOSE)
+      ->run();
+
+    if (!$result->wasSuccessful()) {
+      throw new BltException("Could not copy example.local.blt.yml template to blt folder.");
+    }
+
+    $result = $this->taskFilesystemStack()
+      ->copy($this->getConfigValue('blt.config-files.example-local'), $this->getConfigValue('blt.config-files.local'), true)
+      ->stopOnFail()
+      ->setVerbosityThreshold(VerbosityThresholdInterface::VERBOSITY_VERBOSE)
+      ->run();
+
+    if (!$result->wasSuccessful()) {
+      $filepath = $this->getInspector()->getFs()->makePathRelative($this->getConfigValue('blt.config-files.local'), $this->getConfigValue('repo.root'));
+      throw new BltException("Unable to create $filepath.");
+    }
 
     $this->say("<info>Docksal configs were successfully initialized.</info>");
 
@@ -46,23 +66,11 @@ class DocksalCommands extends BltTasks {
    * @throws \Acquia\Blt\Robo\Exceptions\BltException
    */
   public function docksalConfigInit() {
-
-    // Copy BLT local config template (aka example.local.blt.yml).
-    $result = $this->taskFilesystemStack()
-      ->copy($this->getConfigValue('repo.root') . '/vendor/docksal/blt-docksal/config/blt/example.local.blt.yml', $this->getConfigValue('repo.root') . '/blt/example.local.blt.yml')
-      ->setVerbosityThreshold(VerbosityThresholdInterface::VERBOSITY_VERBOSE)
-      ->run();
-
-    if (!$result->wasSuccessful()) {
-      throw new BltException("Could not initialize BLT local configuration.");
-    }
-
     // Re-init local settings.
     try {
       $result = $this->taskFilesystemStack()
         // TODO: Add multisite local settings support as in blt:init:settings.
         ->remove($this->getConfigValue('drupal.local_settings_file'))
-        ->remove($this->getConfigValue('blt.config-files.local'))
         ->remove($this->getConfigValue('docroot')  . '/sites/default/local.drush.yml')
         ->stopOnFail()
         ->setVerbosityThreshold(VerbosityThresholdInterface::VERBOSITY_VERBOSE)
