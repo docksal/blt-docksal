@@ -2,7 +2,7 @@
 project:
   local:
     protocol: http
-    hostname: '${project.machine_name}.docksal'
+    hostname: '${env.VIRTUAL_HOST}'
 
 # You can set custom project aliases in drush/sites/*.site.yml.
 # All local:* targets are run against drush.aliases.local.
