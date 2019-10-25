@@ -32,13 +32,12 @@ The plugin also installs Docksal blt addon, which makes `fin blt` command availa
 
 # BLT commands support
 
-- VM commands
-Since Docksal is essentially a replacement for DrupalVM support, you shouldn't use `blt vm` with Docksal
-BLT project at the time of writing assumes a local DrupalVM is used to run some BLT commands, therefore running a command
-in BLT makes a lot of assumptions about locally installed software, specifically Behat commands for example. 
+- VM commands:
+Since Docksal is essentially a replacement for DrupalVM support, you shouldn't use `blt vm` with a Docksal
+BLT project. Acquia BLT assumes a local DrupalVM is used to run some BLT commands, therefore running a command
+in BLT makes a lot of assumptions about locally installed software, specifically Behat commands. 
 Docksal doesn't have all the same software installed in the [CLI container](https://github.com/docksal/service-cli) and
-instead relias on external services available on the docker network for some software support, for example we 
-run a chrome service in [docksal.yml](./config/.docksal/docksal.yml), because of that some BLT commands have to be overriden
-by Docksal plugin to remove those assumptions about local software. T
+instead relies on external services available on the docker network for some software support, e.g., defining chrome service in [docksal.yml](./config/.docksal/docksal.yml). Because of that, some BLT commands have to be overriden
+by Docksal plugin to remove those assumptions about local software.
 
 - Behat support is implemented with ChromeDriver only, but it's trivial to add other drivers as Docksal services, pull requests welcome!
