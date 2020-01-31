@@ -36,13 +36,14 @@ class BehatDocksalCommand extends BehatCommand {
     if (!$this->getConfigValue('docksal.enable')) {
       parent::behat();
     }
+    else {
+      // Log config for debugging purposes.
+      $this->logConfig($this->getConfigValue('behat'), 'behat');
+      $this->logConfig($this->getInspector()->getLocalBehatConfig()->export());
+      $this->createReportsDir();
 
-    // Log config for debugging purposes.
-    $this->logConfig($this->getConfigValue('behat'), 'behat');
-    $this->logConfig($this->getInspector()->getLocalBehatConfig()->export());
-    $this->createReportsDir();
-
-    $this->executeBehatTests();
+      $this->executeBehatTests();
+    }
   }
 
 }
