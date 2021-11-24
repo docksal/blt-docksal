@@ -12,7 +12,9 @@
             "role": "Maintainer"
         }
     ],
-  "require": {},
+  "require": {
+    "acquia/blt-behat": "^1.2"
+  },
   "autoload": {
     "psr-4": {
       "Docksal\\BltDockal\\": "./src/"
