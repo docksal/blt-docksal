@@ -2,9 +2,9 @@
 
 namespace Docksal\BltDockal\Blt\Plugin\Commands;
 
-use Acquia\Blt\Robo\Commands\Tests\BehatCommand;
+use Acquia\BltBehat\Blt\Plugin\Commands\BehatTestCommand;
 
-class BehatDocksalCommand extends BehatCommand {
+class BehatDocksalCommand extends BehatTestCommand {
 
   /**
    * Executes all behat tests.
