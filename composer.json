@@ -2,7 +2,7 @@
   "name": "docksal/blt-docksal",
     "type": "library",
     "description": "Docksal integration for Acquia BLT",
-    "keywords": ["acquia", "blt","docksal"],
+    "keywords": ["acquia", "blt", "docksal"],
     "homepage": "https://github.com/docksal/blt-docksal",
     "license": "MIT",
     "authors": [
@@ -13,11 +13,20 @@
         }
     ],
   "require": {
-    "acquia/blt-behat": "^1.2"
+    "acquia/blt": "^13.5",
+    "acquia/blt-behat": "^1.3"
+  },
+  "conflict": {
+    "acquia/blt": "<13"
   },
   "autoload": {
     "psr-4": {
       "Docksal\\BltDockal\\": "./src/"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "acquia/blt": true
     }
   }
 }

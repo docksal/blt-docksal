@@ -7,7 +7,7 @@ This plugin is **community-created** and **community-supported**. Acquia does no
 
 ## Installation and usage
 
-To use this plugin, you must already have a Drupal project using BLT 10.
+To use this plugin, you must already have a Drupal project using Acquia BLT.
 
 In your project, require the plugin with Composer:
 
